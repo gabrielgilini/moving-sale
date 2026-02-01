@@ -1,0 +1,45 @@
+---
+import items from '../lib/items.ts';
+import SearchBar from '../components/SearchBar.astro';
+import ItemCard from '../components/ItemCard.astro';
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moving Sale</title>
+    <style is:global>
+      body {
+        background: radial-gradient(circle at 20% 0%, #111827 0%, #0b1220 40%, #070c16 100%);
+        min-height: 100vh;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+      }
+    </style>
+  </head>
+  <body class="text-white min-h-screen">
+    <header class="pt-10 pb-8 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <h1 class="text-4xl font-light tracking-wide text-white">Moving Sale</h1>
+          <SearchBar />
+        </div>
+      </div>
+    </header>
+    <main class="px-6 pb-16">
+      <div class="max-w-6xl mx-auto">
+        <div id="item-grid" class="grid gap-7 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {items.map(item => (
+            <ItemCard item={item} />
+          ))}
+        </div>
+        <div id="empty-state" class="hidden text-center py-20 text-gray-500">
+          No items found.
+        </div>
+      </div>
+    </main>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+    <script is:inline src="/search.js"></script>
+  </body>
+</html>

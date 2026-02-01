@@ -1,0 +1,84 @@
+---
+import items from '../../lib/items.ts';
+
+export function getStaticPaths() {
+  return items.map(item => ({
+    params: { id: item.id },
+  }));
+}
+
+const { id } = Astro.params;
+const item = items.find(i => i.id === id);
+if (!item) throw new Error('Item not found');
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{item.name} – Moving Sale</title>
+    <style is:global>
+      body {
+        background: radial-gradient(circle at 20% 0%, #111827 0%, #0b1220 40%, #070c16 100%);
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body class="text-white min-h-screen">
+    <main class="max-w-4xl mx-auto px-6 py-10">
+      <a href="/" class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        Back to listings
+      </a>
+      
+      <div class="grid lg:grid-cols-2 gap-10">
+        <!-- Image gallery -->
+        <div class="space-y-4">
+          {item.images?.length > 0 ? (
+            <>
+              <div class="rounded-2xl overflow-hidden bg-gray-900/50">
+                <img src={item.images[0]} alt={item.name} class="w-full aspect-square object-cover" />
+              </div>
+              {item.images.length > 1 && (
+                <div class="grid grid-cols-4 gap-3">
+                  {item.images.slice(1).map((img, idx) => (
+                    <div class="rounded-xl overflow-hidden bg-gray-900/50">
+                      <img src={img} alt={`${item.name} - image ${idx + 2}`} class="w-full aspect-square object-cover hover:opacity-80 transition-opacity cursor-pointer" loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          ) : (
+            <div class="w-full aspect-square bg-gray-800/50 rounded-2xl flex items-center justify-center text-gray-500">
+              No images
+            </div>
+          )}
+        </div>
+        
+        <!-- Item details -->
+        <div class="space-y-6">
+          <h1 class="text-3xl font-light text-white">{item.name}</h1>
+          
+          <div class="flex items-baseline gap-3">
+            {item.salePrice ? (
+              <>
+                <span class="text-gray-500 text-xl line-through">{item.originalPrice} CZK</span>
+                <span class="text-blue-400 text-3xl font-semibold">{item.salePrice} CZK</span>
+              </>
+            ) : item.originalPrice ? (
+              <span class="text-blue-400 text-3xl font-semibold">{item.originalPrice} CZK</span>
+            ) : (
+              <span class="text-blue-400 text-3xl font-semibold">Make offer</span>
+            )}
+          </div>
+          
+          <div class="pt-6 border-t border-white/10">
+            <p class="text-gray-400">
+              Contact for pickup details and availability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

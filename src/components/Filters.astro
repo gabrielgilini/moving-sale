@@ -1,0 +1,9 @@
+---
+const { categories } = Astro.props;
+---
+<div class="flex flex-wrap gap-2 mb-6">
+  <span class="font-semibold">Category:</span>
+  {categories.map(cat => (
+    <button class="px-3 py-1 rounded bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-primary hover:text-white transition" data-category={cat}>{cat}</button>
+  ))}
+</div>

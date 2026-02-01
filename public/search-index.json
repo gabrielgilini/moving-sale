@@ -1,0 +1,108 @@
+[
+  {
+    "id": "soundbar",
+    "name": "Soundbar Samsung HW-Q600F",
+    "originalPrice": 8223,
+    "salePrice": 6578,
+    "images": [
+      "/images/soundbar/WR625bf-04.png",
+      "/images/soundbar/WR625bf-08.png",
+      "/images/soundbar/WR625bf.png"
+    ]
+  },
+  {
+    "id": "smarttv",
+    "name": "Smart TV 65\" Samsung QE65S90F",
+    "originalPrice": 33990,
+    "salePrice": 27192,
+    "images": [
+      "/images/smarttv/WR174k6e-02.png",
+      "/images/smarttv/WR174k6e-04.png",
+      "/images/smarttv/WR174k6e.png"
+    ]
+  },
+  {
+    "id": "sofa",
+    "name": "3-seat sofa-bed LANDSKRONA (4x SANDTRAV cushions for free)",
+    "originalPrice": 20490,
+    "salePrice": 10245,
+    "images": [
+      "/images/sofa/landskrona-3-seat-sofa-bed-gunnared-light-green-wood__1170140_pe892680_s5.png",
+      "/images/sofa/landskrona-3-seat-sofa-bed-gunnared-light-green-wood__1170141_pe892681_s5.png"
+    ]
+  },
+  {
+    "id": "standing-desk",
+    "name": "UTMANING electric standing desk",
+    "originalPrice": 8990,
+    "salePrice": 4495,
+    "images": [
+      "/images/standing-desk/utmaning-gaming-desk-sit-stand-electric-black__1373895_pe960068_s5.png",
+      "/images/standing-desk/utmaning-gaming-desk-sit-stand-electric-black__1373896_pe960067_s5.png"
+    ]
+  },
+  {
+    "id": "childrens-bed",
+    "name": "KRITTER children's bed + UNDERLIG foam mattress (free waterproof mattress protector)",
+    "originalPrice": 3780,
+    "salePrice": 1890,
+    "images": [
+      "/images/childrens-bed/PXL_20260129_125135018.png"
+    ]
+  },
+  {
+    "id": "childrens-desk",
+    "name": "SUNDVIK children's desk + 2x SUNDVIK children's chair",
+    "originalPrice": 2690,
+    "salePrice": 1345,
+    "images": [
+      "/images/childrens-desk/PXL_20260129_125345292.png"
+    ]
+  },
+  {
+    "id": "high-chair",
+    "name": "INGOLF junior high chair",
+    "originalPrice": 1490,
+    "salePrice": 745,
+    "images": [
+      "/images/high-chair/PXL_20260129_130204745.png"
+    ]
+  },
+  {
+    "id": "bedside-table",
+    "name": "VIKHAMMER bedside table",
+    "originalPrice": 1690,
+    "salePrice": 845,
+    "images": [
+      "/images/bedside-table/PXL_20260201_191156764.png"
+    ]
+  },
+  {
+    "id": "gaming-chair",
+    "name": "Diablo X-Player 2.0 gaming chair",
+    "originalPrice": 6059,
+    "salePrice": 1818,
+    "images": [
+      "/images/gaming-chair/file_00000000437871f4add435e317936564.png"
+    ]
+  },
+  {
+    "id": "printer",
+    "name": "Laser Printer Brother DCP-L2600D",
+    "originalPrice": 2990,
+    "salePrice": 1495,
+    "images": [
+      "/images/printer/1.png"
+    ]
+  },
+  {
+    "id": "gaming-monitor",
+    "name": "Monitor 27\" ASUS TUF Gaming VG27AQ (tiny screen defects)",
+    "originalPrice": 10990,
+    "salePrice": 1099,
+    "images": [
+      "/images/gaming-monitor/1.png",
+      "/images/gaming-monitor/2.png"
+    ]
+  }
+]
