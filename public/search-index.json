@@ -8,6 +8,11 @@
       "/images/soundbar/WR625bf-04.png",
       "/images/soundbar/WR625bf-08.png",
       "/images/soundbar/WR625bf.png"
+    ],
+    "thumbs": [
+      "/images/soundbar/thumbs/WR625bf-04.webp",
+      "/images/soundbar/thumbs/WR625bf-08.webp",
+      "/images/soundbar/thumbs/WR625bf.webp"
     ]
   },
   {
@@ -19,6 +24,11 @@
       "/images/smarttv/WR174k6e-02.png",
       "/images/smarttv/WR174k6e-04.png",
       "/images/smarttv/WR174k6e.png"
+    ],
+    "thumbs": [
+      "/images/smarttv/thumbs/WR174k6e-02.webp",
+      "/images/smarttv/thumbs/WR174k6e-04.webp",
+      "/images/smarttv/thumbs/WR174k6e.webp"
     ]
   },
   {
@@ -29,6 +39,10 @@
     "images": [
       "/images/sofa/landskrona-3-seat-sofa-bed-gunnared-light-green-wood__1170140_pe892680_s5.png",
       "/images/sofa/landskrona-3-seat-sofa-bed-gunnared-light-green-wood__1170141_pe892681_s5.png"
+    ],
+    "thumbs": [
+      "/images/sofa/thumbs/landskrona-3-seat-sofa-bed-gunnared-light-green-wood__1170140_pe892680_s5.webp",
+      "/images/sofa/thumbs/landskrona-3-seat-sofa-bed-gunnared-light-green-wood__1170141_pe892681_s5.webp"
     ]
   },
   {
@@ -39,6 +53,10 @@
     "images": [
       "/images/standing-desk/utmaning-gaming-desk-sit-stand-electric-black__1373895_pe960068_s5.png",
       "/images/standing-desk/utmaning-gaming-desk-sit-stand-electric-black__1373896_pe960067_s5.png"
+    ],
+    "thumbs": [
+      "/images/standing-desk/thumbs/utmaning-gaming-desk-sit-stand-electric-black__1373895_pe960068_s5.webp",
+      "/images/standing-desk/thumbs/utmaning-gaming-desk-sit-stand-electric-black__1373896_pe960067_s5.webp"
     ]
   },
   {
@@ -48,6 +66,9 @@
     "salePrice": 1890,
     "images": [
       "/images/childrens-bed/PXL_20260129_125135018.png"
+    ],
+    "thumbs": [
+      "/images/childrens-bed/thumbs/PXL_20260129_125135018.webp"
     ]
   },
   {
@@ -57,6 +78,9 @@
     "salePrice": 1345,
     "images": [
       "/images/childrens-desk/PXL_20260129_125345292.png"
+    ],
+    "thumbs": [
+      "/images/childrens-desk/thumbs/PXL_20260129_125345292.webp"
     ]
   },
   {
@@ -66,6 +90,9 @@
     "salePrice": 745,
     "images": [
       "/images/high-chair/PXL_20260129_130204745.png"
+    ],
+    "thumbs": [
+      "/images/high-chair/thumbs/PXL_20260129_130204745.webp"
     ]
   },
   {
@@ -75,6 +102,9 @@
     "salePrice": 845,
     "images": [
       "/images/bedside-table/PXL_20260201_191156764.png"
+    ],
+    "thumbs": [
+      "/images/bedside-table/thumbs/PXL_20260201_191156764.webp"
     ]
   },
   {
@@ -84,6 +114,9 @@
     "salePrice": 1818,
     "images": [
       "/images/gaming-chair/file_00000000437871f4add435e317936564.png"
+    ],
+    "thumbs": [
+      "/images/gaming-chair/thumbs/file_00000000437871f4add435e317936564.webp"
     ]
   },
   {
@@ -93,6 +126,9 @@
     "salePrice": 1495,
     "images": [
       "/images/printer/1.png"
+    ],
+    "thumbs": [
+      "/images/printer/thumbs/1.webp"
     ]
   },
   {
@@ -103,6 +139,10 @@
     "images": [
       "/images/gaming-monitor/1.png",
       "/images/gaming-monitor/2.png"
+    ],
+    "thumbs": [
+      "/images/gaming-monitor/thumbs/1.webp",
+      "/images/gaming-monitor/thumbs/2.webp"
     ]
   }
 ]

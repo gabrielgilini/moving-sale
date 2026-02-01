@@ -20,14 +20,24 @@ function parseCSV() {
       throw new Error(`Missing required field (ID or Name) in row ${idx + 2}`);
     }
     
-    // Discover images from public/images/${id}/
+    // Discover images and thumbs from public/images/${id}/
     const imagesDir = path.resolve(process.cwd(), 'public/images', id);
+    const thumbsDir = path.join(imagesDir, 'thumbs');
     let images = [];
+    let thumbs = [];
+    
     if (fs.existsSync(imagesDir)) {
       images = fs.readdirSync(imagesDir)
         .filter(f => /\.(jpg|jpeg|png|gif|svg|webp)$/i.test(f))
         .sort()
         .map(f => `/images/${id}/${f}`);
+    }
+    
+    if (fs.existsSync(thumbsDir)) {
+      thumbs = fs.readdirSync(thumbsDir)
+        .filter(f => /\.(webp)$/i.test(f))
+        .sort()
+        .map(f => `/images/${id}/thumbs/${f}`);
     }
     
     return {
@@ -36,6 +46,7 @@ function parseCSV() {
       originalPrice: originalPrice ? Number(originalPrice) : undefined,
       salePrice: salePrice ? Number(salePrice) : undefined,
       images,
+      thumbs,
     };
   });
 }
@@ -48,6 +59,7 @@ const index = items.map(i => ({
   originalPrice: i.originalPrice,
   salePrice: i.salePrice,
   images: i.images,
+  thumbs: i.thumbs,
 }));
 
 const outPath = path.resolve(process.cwd(), 'public/search-index.json');

@@ -7,6 +7,9 @@ dist/
 # Astro cache
 .astro/
 
+# Generated thumbnails
+public/images/**/thumbs/
+
 # Environment variables
 .env
 .env.*

@@ -23,7 +23,7 @@ function render(filtered) {
   }
   emptyState.classList.add('hidden');
   for (const item of filtered) {
-    const primaryImage = item.images?.[0] || '/images/placeholder.svg';
+    const thumbnail = item.thumbs?.[0] || item.images?.[0] || '/images/placeholder.svg';
     const card = document.createElement('a');
     card.href = `/item/${item.id}`;
     card.className = 'group relative block rounded-2xl overflow-hidden bg-gray-900/50 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1 transition-all duration-300 ease-out';
@@ -39,7 +39,7 @@ function render(filtered) {
     
     card.innerHTML = `
       <div class="aspect-[4/3] overflow-hidden">
-        <img src="${primaryImage}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy" />
+        <img src="${thumbnail}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy" />
       </div>
       <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
       <div class="absolute bottom-0 left-0 right-0 p-5">

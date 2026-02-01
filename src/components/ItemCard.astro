@@ -1,6 +1,6 @@
 ---
 const { item } = Astro.props;
-const primaryImage = item.images?.[0] || '/images/placeholder.svg';
+const thumbnail = item.thumbs?.[0] || item.images?.[0] || '/images/placeholder.svg';
 ---
 <a 
   href={`/item/${item.id}`} 
@@ -8,7 +8,7 @@ const primaryImage = item.images?.[0] || '/images/placeholder.svg';
 >
   <div class="aspect-[4/3] overflow-hidden">
     <img 
-      src={primaryImage} 
+      src={thumbnail} 
       alt={item.name} 
       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
       loading="lazy" 
