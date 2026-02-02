@@ -3,26 +3,146 @@ import items from '../lib/items.ts';
 import SearchBar from '../components/SearchBar.astro';
 import ItemCard from '../components/ItemCard.astro';
 ---
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Moving Sale</title>
+    <script is:inline>
+      // Load theme before page renders to prevent flash
+      (function() {
+        const saved = localStorage.getItem('theme');
+        const theme = saved || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
     <style is:global>
-      body {
-        background: radial-gradient(circle at 20% 0%, #111827 0%, #0b1220 40%, #070c16 100%);
-        min-height: 100vh;
+      :root {
+        /* Dark theme (default) */
+        --bg: #0B1220;
+        --bg-secondary: #111827;
+        --card-bg: #0F172A;
+        --card-border: rgba(255,255,255,0.06);
+        --text-primary: #FFFFFF;
+        --text-secondary: #A1A1AA;
+        --text-muted: #71717A;
+        --accent: #60A5FA;
+        --old-price: rgba(255,255,255,0.35);
+        --shadow: rgba(0,0,0,0.35);
+        --search-bg: rgba(255,255,255,0.1);
+        --search-border: rgba(255,255,255,0.2);
       }
+      
+      [data-theme="light"] {
+        --bg: #F6F8FB;
+        --bg-secondary: #FFFFFF;
+        --card-bg: #FFFFFF;
+        --card-border: #E6EAF0;
+        --text-primary: #0F172A;
+        --text-secondary: #64748B;
+        --text-muted: #94A3B8;
+        --accent: #2563EB;
+        --old-price: #94A3B8;
+        --shadow: rgba(15,23,42,0.08);
+        --search-bg: #FFFFFF;
+        --search-border: #E6EAF0;
+      }
+      
+      [data-theme="dark"] body {
+        background: radial-gradient(circle at 20% 0%, var(--bg-secondary) 0%, var(--bg) 40%, #070c16 100%);
+      }
+      
+      [data-theme="light"] body {
+        background: var(--bg);
+      }
+      
+      body {
+        min-height: 100vh;
+        color: var(--text-primary);
+        transition: background-color 0.3s ease;
+      }
+      
       .text-shadow {
         text-shadow: 0 2px 8px rgba(0,0,0,0.8);
       }
+      
+      [data-theme="light"] .text-shadow {
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      }
+      
+      /* Theme switch styles */
+      .theme-switch {
+        background: var(--card-border);
+      }
+      
+      [data-theme="light"] .theme-switch {
+        background: #E6EAF0;
+      }
+      
+      [data-theme="dark"] .theme-switch {
+        background: rgba(255,255,255,0.15);
+      }
+      
+      .theme-switch-knob {
+        background: var(--accent);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      }
+      
+      [data-theme="light"] .theme-switch-knob {
+        left: 4px;
+      }
+      
+      [data-theme="dark"] .theme-switch-knob {
+        left: calc(100% - 28px);
+      }
+      
+      .sun-icon {
+        color: #F59E0B;
+      }
+      
+      [data-theme="light"] .sun-icon {
+        opacity: 1;
+      }
+      
+      [data-theme="dark"] .sun-icon {
+        opacity: 0.4;
+      }
+      
+      .moon-icon {
+        color: #A78BFA;
+      }
+      
+      [data-theme="light"] .moon-icon {
+        opacity: 0.4;
+      }
+      
+      [data-theme="dark"] .moon-icon {
+        opacity: 1;
+      }
     </style>
   </head>
-  <body class="text-white min-h-screen">
+  <body class="min-h-screen">
     <header class="pt-10 pb-8 px-6">
       <div class="max-w-6xl mx-auto">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          <h1 class="text-4xl font-light tracking-wide text-white">Moving Sale</h1>
+          <div class="flex items-center gap-4">
+            <h1 class="text-4xl font-light tracking-wide" style="color: var(--text-primary)">Moving Sale</h1>
+            <button 
+              id="theme-toggle" 
+              class="theme-switch relative flex items-center w-16 h-8 rounded-full p-1 transition-colors duration-300"
+              aria-label="Toggle theme"
+              onclick="toggleTheme()"
+            >
+              <span class="theme-switch-knob absolute w-6 h-6 rounded-full transition-all duration-300 flex items-center justify-center">
+              </span>
+              <svg class="sun-icon w-4 h-4 absolute left-1.5 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+              <svg class="moon-icon w-4 h-4 absolute right-1.5 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </button>
+          </div>
           <SearchBar />
         </div>
       </div>
@@ -41,5 +161,14 @@ import ItemCard from '../components/ItemCard.astro';
     </main>
     <script is:inline src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
     <script is:inline src="/search.js"></script>
+    <script is:inline>
+      function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      }
+    </script>
   </body>
 </html>

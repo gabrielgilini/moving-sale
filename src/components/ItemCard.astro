@@ -4,7 +4,7 @@ const thumbnail = item.thumbs?.[0] || item.images?.[0] || '/images/placeholder.s
 ---
 <a 
   href={`/item/${item.id}`} 
-  class="group relative block rounded-2xl overflow-hidden bg-gray-900/50 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1 transition-all duration-300 ease-out"
+  class="item-card group relative block rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300 ease-out"
 >
   <div class="aspect-[4/3] overflow-hidden">
     <img 
@@ -14,20 +14,52 @@ const thumbnail = item.thumbs?.[0] || item.images?.[0] || '/images/placeholder.s
       loading="lazy" 
     />
   </div>
-  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+  <div class="card-overlay absolute inset-0"></div>
   <div class="absolute bottom-0 left-0 right-0 p-5">
-    <h3 class="text-white font-medium text-base leading-snug mb-2 text-shadow">{item.name}</h3>
+    <h3 class="card-title font-medium text-base leading-snug mb-2 text-shadow">{item.name}</h3>
     <div class="flex items-baseline gap-2">
       {item.salePrice ? (
         <>
-          <span class="text-gray-400 text-sm line-through">{item.originalPrice} CZK</span>
-          <span class="text-blue-400 font-semibold">{item.salePrice} CZK</span>
+          <span class="old-price text-sm line-through">{item.originalPrice} CZK</span>
+          <span class="sale-price font-semibold">{item.salePrice} CZK</span>
         </>
       ) : item.originalPrice ? (
-        <span class="text-blue-400 font-semibold">{item.originalPrice} CZK</span>
+        <span class="sale-price font-semibold">{item.originalPrice} CZK</span>
       ) : (
-        <span class="text-blue-400 font-semibold">Make offer</span>
+        <span class="sale-price font-semibold">Make offer</span>
       )}
     </div>
   </div>
 </a>
+
+<style>
+  .item-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 10px 40px var(--shadow);
+  }
+  
+  .item-card:hover {
+    box-shadow: 0 20px 50px var(--shadow);
+  }
+  
+  .card-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+  }
+  
+  [data-theme="light"] .card-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+  }
+  
+  .card-title {
+    color: #FFFFFF;
+  }
+  
+  .old-price {
+    color: var(--old-price);
+  }
+  
+  .sale-price {
+    color: var(--accent);
+  }
+</style>
