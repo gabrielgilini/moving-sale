@@ -1,36 +1,71 @@
 ---
 const { item } = Astro.props;
 const thumbnail = item.thumbs?.[0] || item.images?.[0] || '/images/placeholder.svg';
+const isSold = item.sold;
 ---
-<a 
-  href={`/item/${item.id}`} 
-  class="item-card group relative block rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300 ease-out"
->
-  <div class="aspect-[4/3] overflow-hidden">
-    <img 
-      src={thumbnail} 
-      alt={item.name} 
-      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
-      loading="lazy" 
-    />
-  </div>
-  <div class="card-overlay absolute inset-0"></div>
-  <div class="absolute bottom-0 left-0 right-0 p-5">
-    <h3 class="card-title font-medium text-base leading-snug mb-2 text-shadow">{item.name}</h3>
-    <div class="flex items-baseline gap-2">
-      {item.salePrice ? (
-        <>
-          <span class="old-price text-sm line-through">{item.originalPrice} CZK</span>
-          <span class="sale-price font-semibold">{item.salePrice} CZK</span>
-        </>
-      ) : item.originalPrice ? (
-        <span class="sale-price font-semibold">{item.originalPrice} CZK</span>
-      ) : (
-        <span class="sale-price font-semibold">Make offer</span>
-      )}
+{isSold ? (
+  <div 
+    class="item-card item-card-sold group relative block rounded-2xl overflow-hidden cursor-default"
+  >
+    <div class="aspect-[4/3] overflow-hidden">
+      <img 
+        src={thumbnail} 
+        alt={item.name} 
+        class="w-full h-full object-cover grayscale opacity-60" 
+        loading="lazy" 
+      />
+    </div>
+    <div class="card-overlay absolute inset-0"></div>
+    <div class="absolute top-3 right-3">
+      <span class="sold-badge px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">Sold</span>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 p-5">
+      <h3 class="card-title font-medium text-base leading-snug mb-2 text-shadow opacity-70">{item.name}</h3>
+      <div class="flex items-baseline gap-2 opacity-50">
+        {item.salePrice ? (
+          <>
+            <span class="old-price text-sm line-through">{item.originalPrice} CZK</span>
+            <span class="sale-price font-semibold">{item.salePrice} CZK</span>
+          </>
+        ) : item.originalPrice ? (
+          <span class="sale-price font-semibold">{item.originalPrice} CZK</span>
+        ) : (
+          <span class="sale-price font-semibold">Make offer</span>
+        )}
+      </div>
     </div>
   </div>
-</a>
+) : (
+  <a 
+    href={`/item/${item.id}`} 
+    class="item-card group relative block rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300 ease-out"
+  >
+    <div class="aspect-[4/3] overflow-hidden">
+      <img 
+        src={thumbnail} 
+        alt={item.name} 
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
+        loading="lazy" 
+      />
+    </div>
+    <div class="card-overlay absolute inset-0"></div>
+    <div class="absolute bottom-0 left-0 right-0 p-5">
+      <h3 class="card-title font-medium text-base leading-snug mb-2 text-shadow">{item.name}</h3>
+      <div class="flex items-baseline gap-2">
+        {item.salePrice ? (
+          <>
+            <span class="old-price text-sm line-through">{item.originalPrice} CZK</span>
+            <span class="sale-price font-semibold">{item.salePrice} CZK</span>
+          </>
+        ) : item.originalPrice ? (
+          <span class="sale-price font-semibold">{item.originalPrice} CZK</span>
+        ) : (
+          <span class="sale-price font-semibold">Make offer</span>
+        )}
+      </div>
+    </div>
+  </a>
+)}
 
 <style>
   .item-card {
@@ -61,5 +96,15 @@ const thumbnail = item.thumbs?.[0] || item.images?.[0] || '/images/placeholder.s
   
   .sale-price {
     color: var(--accent);
+  }
+  
+  .item-card-sold {
+    opacity: 0.85;
+  }
+  
+  .sold-badge {
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   }
 </style>

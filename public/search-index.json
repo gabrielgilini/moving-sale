@@ -1,7 +1,7 @@
 [
   {
     "id": "soundbar",
-    "name": "Soundbar Samsung HW-Q600F",
+    "name": "Soundbar Samsung HW-Q600F (6 months old)",
     "originalPrice": 8223,
     "salePrice": 6578,
     "images": [
@@ -17,7 +17,7 @@
   },
   {
     "id": "smarttv",
-    "name": "Smart TV 65\" Samsung QE65S90F",
+    "name": "Smart TV OLED 65\" Samsung QE65S90F (6 months old)",
     "originalPrice": 33990,
     "salePrice": 27192,
     "images": [
@@ -143,6 +143,22 @@
     "thumbs": [
       "/images/gaming-monitor/thumbs/1.webp",
       "/images/gaming-monitor/thumbs/2.webp"
+    ]
+  },
+  {
+    "id": "wide-gaming-monitor",
+    "name": "Gaming Monitor 31.5\" MSI Optix MAG322CQR 165Hz",
+    "originalPrice": 4990,
+    "salePrice": 1996,
+    "images": [
+      "/images/wide-gaming-monitor/1.png",
+      "/images/wide-gaming-monitor/2.png",
+      "/images/wide-gaming-monitor/3.png"
+    ],
+    "thumbs": [
+      "/images/wide-gaming-monitor/thumbs/1.webp",
+      "/images/wide-gaming-monitor/thumbs/2.webp",
+      "/images/wide-gaming-monitor/thumbs/3.webp"
     ]
   }
 ]

@@ -14,6 +14,7 @@ function parseCSV() {
     const name = row['Name'];
     const originalPrice = row['Original price'];
     const salePrice = row['Sale price'];
+    const sold = row['Sold'] === '1' || row['Sold']?.toLowerCase() === 'true';
     
     if (!id || !name) {
       throw new Error(`Missing required field (ID or Name) in row ${idx + 2}`);
@@ -44,6 +45,7 @@ function parseCSV() {
       name,
       originalPrice: originalPrice ? Number(originalPrice) : undefined,
       salePrice: salePrice ? Number(salePrice) : undefined,
+      sold,
       images,
       thumbs,
     };

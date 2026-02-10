@@ -1,12 +1,13 @@
-﻿Name,Original price,Sale price,ID
-Soundbar Samsung HW-Q600F,8223,6578,soundbar
-"Smart TV 65"" Samsung QE65S90F",33990,27192,smarttv
-3-seat sofa-bed LANDSKRONA (4x SANDTRAV cushions for free),20490,10245,sofa
-UTMANING electric standing desk,8990,4495,standing-desk
-KRITTER children's bed + UNDERLIG foam mattress (free waterproof mattress protector),3780,1890,childrens-bed
-SUNDVIK children's desk + 2x SUNDVIK children's chair,2690,1345,childrens-desk
-INGOLF junior high chair,1490,745,high-chair
-VIKHAMMER bedside table,1690,845,bedside-table
-Diablo X-Player 2.0 gaming chair,6059,1818,gaming-chair
-Laser Printer Brother DCP-L2600D,2990,1495,printer
-"Monitor 27"" ASUS TUF Gaming VG27AQ (tiny screen defects)",10990,1099,gaming-monitor
+﻿Name,Original price,Sale price,ID,Sold
+Soundbar Samsung HW-Q600F (6 months old),8223,6578,soundbar,0
+"Smart TV OLED 65"" Samsung QE65S90F (6 months old)",33990,27192,smarttv,0
+3-seat sofa-bed LANDSKRONA (4x SANDTRAV cushions for free),20490,10245,sofa,0
+UTMANING electric standing desk,8990,4495,standing-desk,0
+KRITTER children's bed + UNDERLIG foam mattress (free waterproof mattress protector),3780,1890,childrens-bed,0
+SUNDVIK children's desk + 2x SUNDVIK children's chair,2690,1345,childrens-desk,0
+INGOLF junior high chair,1490,745,high-chair,0
+VIKHAMMER bedside table,1690,845,bedside-table,0
+Diablo X-Player 2.0 gaming chair,6059,1818,gaming-chair,1
+Laser Printer Brother DCP-L2600D,2990,1495,printer,0
+"Monitor 27"" ASUS TUF Gaming VG27AQ (tiny screen defects)",10990,1099,gaming-monitor,1
+"Gaming Monitor 31.5"" MSI Optix MAG322CQR 165Hz",4990,1996,wide-gaming-monitor,0
